@@ -26,5 +26,17 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        imageView.setOnClickListener {
+            objectAnimator = ObjectAnimator.ofFloat(imageView,View.TRANSLATION_X,imageView.translationX,
+                imageView.translationX + 200f)
+            objectAnimator2 = ObjectAnimator.ofFloat(imageView,View.TRANSLATION_Y,imageView.translationY,
+                imageView.translationY + 200f)
+            objectAnimator.duration = 4000
+            objectAnimator.start()
+            objectAnimator.doOnEnd {
+                    objectAnimator2.duration = 4000
+                    objectAnimator2.start()
+                }
+        }
     }
 }
